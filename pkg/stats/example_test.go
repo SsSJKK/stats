@@ -10,12 +10,15 @@ func ExampleAvg() {
 	var pyments = []types.Payment{
 		{
 			Amount: 1,
+			Status: types.StatusFail,
 		},
 		{
 			Amount: 2,
+			Status: types.StatusOk,
 		},
 		{
 			Amount: 3,
+			Status: types.StatusFail,
 		},
 	}
 

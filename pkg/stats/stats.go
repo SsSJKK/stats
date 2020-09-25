@@ -7,12 +7,14 @@ import (
 //Avg func
 func Avg(pyments []types.Payment) types.Money {
 	var avgSumm types.Money
+	var countPy types.Money
 	for _, pyments := range pyments {
 		if pyments.Status != types.StatusFail {
 			avgSumm += pyments.Amount
+			countPy++
 		}
 	}
-	avgSumm /= types.Money(len(pyments))
+	avgSumm /= countPy
 	return avgSumm
 }
 
