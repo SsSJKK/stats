@@ -30,3 +30,21 @@ func TotalInCategory(pyments []types.Payment, category types.Category) types.Mon
 	}
 	return totalSumm
 }
+
+//CategoriesAvg func
+func CategoriesAvg(payments []types.Payment) map[types.Category]types.Money {
+	categoriesAvg := make(map[types.Category]types.Money)
+	countPayments := make(map[types.Category]types.Money)
+	for _, payments := range payments {
+		if payments.Status != types.StatusFail {
+			countPayments[payments.Category]++
+		}
+	}
+	for _, payments := range payments {
+		if payments.Status != types.StatusFail {
+			categoriesAvg[payments.Category] += payments.Amount / countPayments[payments.Category]
+		}
+	}
+
+	return categoriesAvg
+}
